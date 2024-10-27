@@ -1,15 +1,15 @@
-package kimlngo.springframework.reactive.streaming_stock_quote_service.web;
+package com.kimlngo.springframework.reactive.web;
 
 
+import com.kimlngo.springframework.reactive.model.Quote;
+import com.kimlngo.springframework.reactive.service.QuoteGeneratorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import kimlngo.springframework.reactive.streaming_stock_quote_service.model.Quote;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import kimlngo.springframework.reactive.streaming_stock_quote_service.service.QuoteGeneratorService;
 
 import java.time.Duration;
 
@@ -20,7 +20,8 @@ public class QuoteHandler {
     private final QuoteGeneratorService quoteGeneratorService;
 
     public Mono<ServerResponse> fetchQuotes(ServerRequest req) {
-        int size = Integer.parseInt(req.queryParam("size").orElse("10"));
+        int size = Integer.parseInt(req.queryParam("size")
+                                       .orElse("10"));
 
         return ServerResponse.ok()
                              .contentType(MediaType.APPLICATION_JSON)

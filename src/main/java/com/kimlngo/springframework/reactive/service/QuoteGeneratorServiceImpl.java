@@ -1,6 +1,6 @@
-package kimlngo.springframework.reactive.streaming_stock_quote_service.service;
+package com.kimlngo.springframework.reactive.service;
 
-import kimlngo.springframework.reactive.streaming_stock_quote_service.model.Quote;
+import com.kimlngo.springframework.reactive.model.Quote;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.SynchronousSink;
@@ -51,6 +51,7 @@ public class QuoteGeneratorServiceImpl implements QuoteGeneratorService {
     private Quote updateQuote(Quote quote) {
         BigDecimal priceChange = quote.getPrice()
                                       .multiply(new BigDecimal(0.05 * this.random.nextDouble()), this.mathContext);
-        return new Quote(quote.getTicker(), quote.getPrice().add(priceChange));
+        return new Quote(quote.getTicker(), quote.getPrice()
+                                                 .add(priceChange));
     }
 }

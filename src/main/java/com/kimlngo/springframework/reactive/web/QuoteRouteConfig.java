@@ -1,4 +1,4 @@
-package kimlngo.springframework.reactive.streaming_stock_quote_service.web;
+package com.kimlngo.springframework.reactive.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

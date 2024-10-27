@@ -1,4 +1,4 @@
-package kimlngo.springframework.reactive.streaming_stock_quote_service;
+package com.kimlngo.springframework.reactive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

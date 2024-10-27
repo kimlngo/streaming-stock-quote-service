@@ -1,7 +1,6 @@
-package kimlngo.springframework.reactive.streaming_stock_quote_service.service;
+package com.kimlngo.springframework.reactive.service;
 
-import kimlngo.springframework.reactive.streaming_stock_quote_service.model.Quote;
-import kimlngo.springframework.reactive.streaming_stock_quote_service.service.QuoteGeneratorServiceImpl;
+import com.kimlngo.springframework.reactive.model.Quote;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
@@ -30,7 +29,8 @@ class QuoteGeneratorServiceImplTest {
 
         Runnable done = () -> countDownLatch.countDown();
 
-        quotesFlux.take(30).subscribe(quoteConsumer, throwableConsumer, done);
+        quotesFlux.take(30)
+                  .subscribe(quoteConsumer, throwableConsumer, done);
 
         countDownLatch.await();
     }

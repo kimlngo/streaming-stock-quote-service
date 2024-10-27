@@ -1,4 +1,4 @@
-package model;
+package kimlngo.springframework.reactive.streaming_stock_quote_service.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
